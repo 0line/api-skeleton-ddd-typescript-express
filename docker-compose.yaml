@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  apiusers:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: apiusers    
+    env_file:
+    - docker.env
+    restart: unless-stopped
+    volumes:
+        - .:/usr/src/app
+    expose:
+      - '${PORT}'
+    ports:
+      - '${PORT}:${PORT}'
+    command: [ "npm", "run", "dev"]
+
