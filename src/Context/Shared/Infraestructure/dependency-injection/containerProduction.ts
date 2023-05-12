@@ -1,7 +1,7 @@
-import {container} from "./container";
+import container from "./container";
 
 
-export const containerProduction = container.createScope();
+const containerProduction = container.createScope();
 
 
-module.exports = containerProduction;
+ export default containerProduction;

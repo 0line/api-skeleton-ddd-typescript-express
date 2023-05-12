@@ -1,4 +1,4 @@
-import { json, urlencoded } from 'body-parser';
+import bodyParser  from 'body-parser';
 import compress from 'compression';
 import errorHandler from "errorhandler";
 import express, { Request, Response, Application  } from 'express';
@@ -7,6 +7,9 @@ import helmet from 'helmet';
 import * as http from 'http';
 import httpStatus from 'http-status';
 import { registerRoutes } from './routes';
+import cors from 'cors';
+import 'dotenv/config';
+
 export class Server {
 	private readonly express:  Application = express();
 	private readonly port: string;
@@ -14,23 +17,24 @@ export class Server {
 
 	constructor(port: string) {
 		this.port = port;
-		this.express.use(json());
-		this.express.use(urlencoded({ extended: true }));
+		this.express = express();
+		this.express.use(bodyParser.json());
+		this.express.use(bodyParser.urlencoded({ extended: true }));
 		this.express.use(helmet.xssFilter());
 		this.express.use(helmet.noSniff());
 		this.express.use(helmet.hidePoweredBy());
 		this.express.use(helmet.frameguard({ action: 'deny' }));
 		this.express.use(compress());
 		const router = Router();
+		router.use(cors());
 		router.use(errorHandler());
-		this.express.use('/api/v1', router);
-
+		this.express.use(process.env.PREFIX_API_V1, router);
 		registerRoutes(router);
-		router.use((err: Error, req: Request, res: Response, _next: () => void) => {
-			console.log(err);
-			res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
+	
+		router.use((err: Error, req: Request, res: Response, next: Function) => {
+		  res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
 		});
-	}
+	  }
 
 	async listen(): Promise<void> {
 		return new Promise(resolve => {

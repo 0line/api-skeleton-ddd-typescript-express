@@ -4,6 +4,11 @@ import { Controller } from '../../../Shared/Infraestructure/Controllers/Controll
 
 export default class StatusGetController implements Controller {
 	run(req: Request, res: Response): void {
-		res.status(httpStatus.OK).send();
+		res.status(httpStatus.OK).send({
+			"status" : httpStatus.OK,
+			"success": true , 
+			"data": {},
+			"message": "todo ok"
+		});
 	}
 }

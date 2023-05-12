@@ -3,14 +3,14 @@ import { glob } from 'glob';
 
 export async function registerRoutes(router: Router): Promise<void> {
 	const routes = await glob(
-		'**/*.route.*', 
+		__dirname + '**/*.route.*', 
 		{ 
-			ignore: 'node_modules/**',
 			root: `${__dirname}`,
-			absolute: true 
+			absolute: true,
+			windowsPathsNoEscape : true 
 		}
 	);
-	routes.map(route => register(route, router));
+	routes.forEach(route => register(route, router));
 }
 
 function register(routePath: string, router: Router) {

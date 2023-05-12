@@ -1,7 +1,6 @@
-import { createContainer   } from 'awilix'
-import {serverContainer} from './Server/container';
+import { createContainer } from 'awilix'
+import serverContainer from './Server/container';
 
-export const container = createContainer();
-container.build(serverContainer);
-
-module.exports = container;
+const container = createContainer();
+container.register(serverContainer.registrations);
+export  default container;
