@@ -1,8 +1,8 @@
 import {  Router } from 'express';
-import { glob } from 'glob';
+import { globSync } from 'glob';
 
-export async function registerRoutes(router: Router): Promise<void> {
-	const routes = await glob(
+export function registerRoutes(router: Router) {
+	const routes = globSync(
 		__dirname + '**/*.route.*', 
 		{ 
 			root: `${__dirname}`,
