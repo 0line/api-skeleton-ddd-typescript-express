@@ -108,7 +108,6 @@
   },
   "include": [
     "src/**/**.ts",
-    "test/**/**.ts",
-    "src/Context/Shared/Infraestructure/routes/status"  ],
+    "test/**/**.ts", ],
   "exclude": ["node_modules"]
 }
