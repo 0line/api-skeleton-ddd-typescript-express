@@ -6,7 +6,6 @@ import { UsersApp } from '../../../../../../src/Context/Shared/Infraestructure/U
 
 let _request: request.Test;
 let application: UsersApp;
-//let _response: request.Response;
 
 Given("I send a GET request to {string}", (route: string) => {
   _request = request(application.httpServer).get(route);

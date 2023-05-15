@@ -8,7 +8,7 @@ import * as http from 'http';
 import httpStatus from 'http-status';
 import { registerRoutes } from './routes';
 import cors from 'cors';
-import 'dotenv/config';
+import dotenv from "dotenv"
 
 export class Server {
 	private readonly express:  Application = express();
@@ -16,6 +16,7 @@ export class Server {
 	private httpServer?: http.Server;
 
 	constructor(port: string) {
+		dotenv.config({ path: '.env', encoding: 'latin1', debug: true, override: false });
 		this.port = port;
 		this.express = express();
 		this.express.use(bodyParser.json());
@@ -28,7 +29,8 @@ export class Server {
 		const router = Router();
 		router.use(cors());
 		router.use(errorHandler());
-		this.express.use(process.env.PREFIX_API_V1, router);
+		const prefix = process.env.PREFIX_API_V1 ?? '/api/v1';
+		this.express.use(prefix, router);
 		registerRoutes(router);
 	
 		router.use((err: Error, req: Request, res: Response, next: Function) => {
