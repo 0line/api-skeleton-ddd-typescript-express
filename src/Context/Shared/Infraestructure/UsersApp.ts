@@ -4,7 +4,7 @@ export class UsersApp {
   server?: Server;
 
   async start(): Promise<void> {
-    const port = process.env.PORT ?? '5000';
+    const port =  '5000';//process.env.PORT ?? '5000';
     this.server = new Server(port);
 
     return this.server.listen();
