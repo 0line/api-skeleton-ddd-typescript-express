@@ -17,9 +17,9 @@ Then("the response status code should be {int}", async (status: number) => {
 
 BeforeAll(() => {
   application = new UsersApp();
-  application.start();
+  void application.start();
 });
 
 AfterAll(() => {
-  application.stop();
+  void application.stop();
 });

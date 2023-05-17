@@ -3,7 +3,7 @@ import StatusGetController from "../../../Server/Infraestructure/Controllers/Sta
 import containerTest from "../dependency-injection/containerTest";
 
 export const register = (router: Router): void => {
-  const controller : StatusGetController = containerTest.resolve('statusGetController');
+  const controller:StatusGetController  = containerTest.resolve('statusGetController') as StatusGetController;
   router.get("/status", (req: Request, res: Response) => {
     controller.run(req, res);
   });
