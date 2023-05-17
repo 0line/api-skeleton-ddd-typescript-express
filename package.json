@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --ignore-watch node_modules  ./src/Context/Shared/Infraestructure/start.ts",
     "test": "npm run test:unit && npm run test:features",
-    "test:unit": "SET NODE_ENV=test jest",
+    "test:unit": "NODE_ENV=test jest",
     "test:features": "npm run test:Users",
     "test:Users": "SET NODE_ENV=test && cucumber-js -p Users",
     "tsc": "tsc",
@@ -55,6 +55,7 @@
     "jest": "29.5.0",
     "reflect-metadata": "0.1.13",
     "supertest": "6.3.3",
+    "ts-jest": "29.1.0",
     "ts-node-dev": "2.0.0",
     "typescript": "5.0.4"
   },
@@ -65,7 +66,7 @@
   },
   "lint-staged": {
     "{src,tests}/**/*.ts": [
-      "npm run lint:fix",
+      "prettier --write",
       "git add"
     ]
   }
