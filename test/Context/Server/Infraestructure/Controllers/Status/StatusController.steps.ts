@@ -12,7 +12,6 @@ Given("I send a GET request to {string}", (route: string) => {
 });
 
 Then("the response status code should be {int}", async (status: number) => {
-  console.log(await _request);
   await _request.expect(status);
 });
 
