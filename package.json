@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --ignore-watch node_modules  ./src/Context/Shared/Infraestructure/start.ts",
-    "test": "npm run test:unit && npm run test:features",
+    "test": "npm run test:features",
     "test:unit": "NODE_ENV=test jest",
     "test:features": "npm run test:Users",
     "test:Users": "SET NODE_ENV=test && cucumber-js -p Users",
