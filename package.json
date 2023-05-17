@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "ts-node-dev --ignore-watch node_modules  ./src/Context/Shared/Infraestructure/start.ts",
     "test": "npm run test:unit && npm run test:features",
-    "test:unit": "SET NODE_ENV=test jest",
+    "test:unit": "NODE_ENV=test jest",
     "test:features": "npm run test:Users",
-    "test:Users": "SET NODE_ENV=test && cucumber-js -p Users",
+    "test:Users": "NODE_ENV=test && cucumber-js -p Users",
     "tsc": "tsc",
     "lint": "prettier --write src/**/*.ts{,x}",
     "build": "npm run build:clean && npm run build:tsc",
