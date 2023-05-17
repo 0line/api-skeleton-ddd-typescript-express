@@ -6,15 +6,14 @@
   "scripts": {
     "dev": "ts-node-dev --ignore-watch node_modules  ./src/Context/Shared/Infraestructure/start.ts",
     "test": "npm run test:unit && npm run test:features",
-    "test:unit": "NODE_ENV=test jest",
+    "test:unit": "SET NODE_ENV=test jest",
     "test:features": "npm run test:Users",
     "test:Users": "SET NODE_ENV=test && cucumber-js -p Users",
     "tsc": "tsc",
-    "lint": "eslint --ignore-path .gitignore .",
-    "lint:fix": "npm run lint -- --fix",
+    "lint": "prettier --write src/**/*.ts{,x}",
     "build": "npm run build:clean && npm run build:tsc",
     "build:tsc": "tsc -p tsconfig.prod.json",
-    "build:clean": "rm -r dist; exit 0"
+    "build:clean": "rm -r ./dist; exit 0"
   },
   "author": "",
   "license": "ISC",
@@ -45,6 +44,7 @@
     "errorhandler": "1.5.1",
     "eslint": "8.40.0",
     "eslint-config-airbnb": "19.0.4",
+    "eslint-plugin-prettier": "4.2.1",
     "express-promise-router": "4.1.1",
     "glob": "10.2.2",
     "helmet": "7.0.0",

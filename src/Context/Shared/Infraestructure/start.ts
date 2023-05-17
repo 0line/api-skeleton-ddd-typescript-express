@@ -1,5 +1,5 @@
-import { UsersApp } from "./UsersApp";
-  
+import { UsersApp } from './UsersApp';
+
 try {
   void new UsersApp().start();
 } catch (e) {
@@ -7,7 +7,7 @@ try {
   process.exit(1);
 }
 
-process.on("uncaughtException", (err) => {
-  console.error("uncaughtException", err);
+process.on('uncaughtException', err => {
+  console.error('uncaughtException', err);
   process.exit(1);
 });

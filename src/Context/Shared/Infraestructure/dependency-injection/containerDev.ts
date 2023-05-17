@@ -1,5 +1,4 @@
-import container from "./container";
-
+import container from './container';
 
 const containerDev = container.createScope();
 

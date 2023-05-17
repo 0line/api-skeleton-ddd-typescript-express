@@ -1,7 +1,5 @@
-import container from "./container";
-
+import container from './container';
 
 const containerProduction = container.createScope();
 
-
- export default containerProduction;
+export default containerProduction;
