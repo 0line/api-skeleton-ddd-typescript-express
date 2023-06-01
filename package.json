@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --ignore-watch node_modules  ./src/Context/Shared/Infraestructure/start.ts",
-    "test": "npm run test:unit && npm run test:features",
+    "test": "npm run test:features",
     "test:unit": "NODE_ENV=test jest",
     "test:features": "npm run test:Users",
-    "test:Users": "SET NODE_ENV=test && cucumber-js -p Users",
+    "test:Users": "NODE_ENV=test && cucumber-js -p Users",
     "tsc": "tsc",
     "lint": "prettier --write src/**/*.ts{,x}",
     "build": "npm run build:clean && npm run build:tsc",
@@ -25,7 +25,7 @@
     "ts-node": "10.9.1"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^9.1.2",
+    "@cucumber/cucumber": "9.1.2",
     "@types/aws-lambda": "8.10.115",
     "@types/compression": "1.7.2",
     "@types/cors": "2.8.13",

@@ -2,11 +2,7 @@ import { Router } from 'express';
 import { globSync } from 'glob';
 
 export function registerRoutes(router: Router) {
-  const routes = globSync(__dirname + '**/*.route.*', {
-    root: `${__dirname}`,
-    absolute: true,
-    windowsPathsNoEscape: true
-  });
+  const routes = globSync(__dirname + '/**/*.route.*');
   routes.forEach(route => register(route, router));
 }
 
