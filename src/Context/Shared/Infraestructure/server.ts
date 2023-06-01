@@ -1,7 +1,7 @@
 import bodyParser from 'body-parser';
 import compress from 'compression';
 import errorHandler from 'errorhandler';
-import express, { Request, Response, Application } from 'express';
+import express, { Request, Response } from 'express';
 import Router from 'express-promise-router';
 import helmet from 'helmet';
 import * as http from 'http';
@@ -11,7 +11,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 export class Server {
-  private readonly express: Application = express();
+  private readonly express: express.Express;
   private readonly port: string;
   private httpServer?: http.Server;
 
@@ -32,8 +32,8 @@ export class Server {
     const prefix = process.env.PREFIX_API_V1 ?? '/api/v1';
     this.express.use(prefix, router);
     registerRoutes(router);
-
-    router.use((err: Error, req: Request, res: Response) => {
+    router.use((err: Error, req: Request, res: Response, next: Function) => {
+      console.log(err.message);
       res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
     });
   }
