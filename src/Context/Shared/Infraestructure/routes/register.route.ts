@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express';
-import RegisterPutController from '../../../Guest/Infraestructure/Register/Controllers/RegisterController';
+import RegisterPutController from '../../../Register/Infraestructure/Controllers/RegisterPutController';
 import containerTest from '../dependency-injection/containerTest';
 
 export const register = (router: Router) => {

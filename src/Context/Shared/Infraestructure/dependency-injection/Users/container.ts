@@ -1,5 +1,5 @@
 import { createContainer, asClass } from 'awilix';
-import RegisterPutController from '../../../../Guest/Infraestructure/Register/Controllers/RegisterController';
+import RegisterPutController from '../../../../Register/Infraestructure/Controllers/RegisterPutController';
 
 const usersContainer = createContainer();
 usersContainer.register({
