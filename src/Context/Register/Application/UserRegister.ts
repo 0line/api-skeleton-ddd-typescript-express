@@ -1,5 +1,5 @@
-import { User } from "../../../../src/Context/Register/Domain/User";
-import { UserRepository } from "../../../../src/Context/Register/Domain/UserRepository";
+import { User } from "../Domain/User";
+import { UserRepository } from "../Domain/UserRepository"; 
 
 export class UserRegister {
     constructor(private repository: UserRepository){}

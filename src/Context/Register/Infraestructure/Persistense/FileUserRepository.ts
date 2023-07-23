@@ -9,11 +9,12 @@ export class FileUserRepository implements UserRepository{
     async save(user: User): Promise<void> {
         try {
             let path = this.filePath(user.id);
-            console.log(path);
             if (fs.existsSync(path)) {
                 this.deleteFile(path);
+                fs.promises.writeFile(path, serialize(user));
+            } else {
+                fs.promises.writeFile(path, serialize(user));
             }
-            fs.promises.writeFile(path, serialize(user));
         } catch (error) {
             console.log(error);
         }

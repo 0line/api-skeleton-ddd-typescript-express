@@ -5,7 +5,7 @@ Feature: Register in application
     Given I send a PUT request to "/api/v1/users/ef8ac118-8d7f-49cc-abec-78e0d05af80a" with body:
     """
     {
-      "email": "myuser@email.com",
+      "email": "mail@email.com",
       "password": "password123"
     }
     """
