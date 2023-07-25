@@ -3,8 +3,13 @@ import { User } from "../../../../src/Context/Register/Domain/User";
 import { UserRepositoryMoock } from "../__mocks__/UserRepositoryMoock";
 
 describe('UserRegister', () => {
+    let repository: UserRepositoryMoock;
+
+    beforeEach(() => {
+        repository = new UserRepositoryMoock();
+    });
+
     it('shoult create a valid course', async () => {
-        const repository = new UserRepositoryMoock();
         const creator = new UserRegister(repository);
         const id = 'id';
         const email = 'mail@mail.com';

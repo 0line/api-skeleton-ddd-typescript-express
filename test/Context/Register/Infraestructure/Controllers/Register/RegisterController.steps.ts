@@ -15,11 +15,10 @@ When('the response status code should be {int} for register', async (status: num
   _response = await _request.expect(status);
 });
 
-Then('the response should be empty', () => {
-  assert.deepStrictEqual(_response.body, {});
-});
-
-
 Then('the response content should be:', response => {
   assert.deepStrictEqual(_response.body, JSON.parse(response));
+});
+
+Then('the response should be empty', () => {
+  assert.deepStrictEqual(_response.body, {});
 });
