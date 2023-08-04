@@ -1,7 +1,7 @@
 import { User } from "../../../../src/Context/Register/Domain/User";
 import { UserRepository } from "../../../../src/Context/Register/Domain/UserRepository";
 
-export class UserRepositoryMoock implements UserRepository {
+export class UserRegisterMoock implements UserRepository {
     private saveMock: jest.Mock;
     
     constructor() {

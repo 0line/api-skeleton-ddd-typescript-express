@@ -1,23 +1,17 @@
-import { UserRegister } from "../../../../src/Context/Register/Application/UserRegister";
 import { User } from "../../../../src/Context/Register/Domain/User";
-import { UserRepositoryMoock } from "../__mocks__/UserRepositoryMoock";
+import { UserRegisterMoock } from "../__mocks__/UserRegisterMoock";
 
 describe('UserRegister', () => {
-    let repository: UserRepositoryMoock;
-
-    beforeEach(() => {
-        repository = new UserRepositoryMoock();
-    });
-
+   
     it('shoult create a valid course', async () => {
-        const creator = new UserRegister(repository);
+        const creator = new UserRegisterMoock()
         const id = 'id';
         const email = 'mail@mail.com';
         const password = 'password';
         const expectedCourse = new User({ id, email, password });
 
-        await creator.run(id, email, password);
+        await creator.save({id, email, password});
 
-        repository.saveHaveBeenCalledWith(expectedCourse);
+        creator.saveHaveBeenCalledWith(expectedCourse);
     });
 });
