@@ -8,13 +8,11 @@ export class FileUserRepository implements UserRepository{
 
     async save(user: User): Promise<void> {
         try {
-            let path = this.filePath(user.id);
+            let path = this.filePath(user.id.value);
             if (fs.existsSync(path)) {
                 this.deleteFile(path);
-                fs.promises.writeFile(path, serialize(user));
-            } else {
-                fs.promises.writeFile(path, serialize(user));
             }
+            fs.promises.writeFile(path, serialize(user));
         } catch (error) {
             console.log(error);
         }
@@ -30,7 +28,7 @@ export class FileUserRepository implements UserRepository{
         return `${this.FILE_PATH}.${id}.repo`;
     }
 
-    deleteFile(urlFile:string) {
+    private deleteFile(urlFile:string) {
         fs.unlink(urlFile, (err: any) => {
             if (err) {
                 throw err;

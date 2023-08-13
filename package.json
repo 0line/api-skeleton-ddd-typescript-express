@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --ignore-watch node_modules  ./src/Context/Shared/Infraestructure/start.ts",
-    "test": "npm run test:features",
+    "test": "npm run test:unit",
     "test:unit": "NODE_ENV=test jest",
     "test:features": "npm run test:Users",
     "test:Users": "NODE_ENV=test && cucumber-js -p Users",
@@ -59,7 +59,8 @@
     "supertest": "6.3.3",
     "ts-jest": "29.1.0",
     "ts-node-dev": "2.0.0",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "uuid-validate": "0.0.3"
   },
   "husky": {
     "hooks": {

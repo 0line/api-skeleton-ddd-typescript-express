@@ -1,12 +1,17 @@
+import { Uuid } from "../../Shared/Domain/Value-Object/Uuid";
 import { User } from "../Domain/User";
 import { UserRepository } from "../Domain/UserRepository"; 
 import { UserRegisterRequest } from './UserRegisterRequest';
 export class UserRegister {
+
+    private readonly userRepository: UserRepository;
     
-    constructor(private readonly userRepository: UserRepository){}
+    constructor(userRepository: UserRepository){
+        this.userRepository = userRepository;
+    }
 
     async run(request: UserRegisterRequest){
-        const user = new User({id: request.id ,email: request.email,password: request.password});
+        const user = new User({id: new Uuid(request.id),email: request.email,password: request.password});
 
         return this.userRepository.save(user);
     }

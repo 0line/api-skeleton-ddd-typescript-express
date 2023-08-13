@@ -2,10 +2,10 @@ Feature: Register in application
   I am guest and i want to register
 
   Scenario: Check the register that new user
-    Given I send a PUT request to "/api/v1/users/ef8ac118-8d7f-49cc-abec-78e0d05af80a" with body:
+    Given I send a PUT request to "/api/v1/users/0766c602-d4d4-48b6-9d50-d3253123275e" with body:
     """
     {
-      "id": "ef8ac118-8d7f-49cc-abec-78e0d05af80a",
+      "id": "0766c602-d4d4-48b6-9d50-d3253123275e",
       "email": "mail@email.com",
       "password": "password123"
     }
@@ -15,10 +15,10 @@ Feature: Register in application
   
 
   Scenario: Check is a valid register user
-    Given I send a PUT request to "/api/v1/users/ef8ac118-8d7f-49cc-abec-78e0d05af80a" with body:
+    Given I send a PUT request to "/api/v1/users/0766c602-d4d4-48b6-9d50-d3253123275e" with body:
     """
     {
-      "id": "ef8ac118-8d7f-49cc-abec-78e0d05af80a",
+      "id": "0766c602-d4d4-48b6-9d50-d3253123275e",
       "email": "mailemail.com",
       "password": "password123"
     }
