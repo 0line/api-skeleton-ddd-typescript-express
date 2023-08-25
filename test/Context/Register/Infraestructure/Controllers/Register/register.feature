@@ -7,7 +7,8 @@ Feature: Register in application
     {
       "id": "0766c602-d4d4-48b6-9d50-d3253123275e",
       "email": "mail@email.com",
-      "password": "password123"
+      "password": "password123",
+      "confirmPassword": "password123"
     }
     """
     When the response status code should be 201 for register
@@ -20,7 +21,8 @@ Feature: Register in application
     {
       "id": "0766c602-d4d4-48b6-9d50-d3253123275e",
       "email": "mailemail.com",
-      "password": "password123"
+      "password": "password123",
+      "confirmPassword": "password1234" 
     }
     """
     Then the response status code should be 422 for register

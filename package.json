@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --ignore-watch node_modules  ./src/Context/Shared/Infraestructure/start.ts",
+    "dev": "ts-node-dev --ignore-watch node_modules  ./src/Shared/Infraestructure/start.ts",
     "test": "npm run test:unit",
     "test:unit": "NODE_ENV=test jest",
     "test:features": "npm run test:Users",

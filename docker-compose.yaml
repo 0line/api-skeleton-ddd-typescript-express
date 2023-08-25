@@ -14,5 +14,5 @@ services:
       - '${PORT}'
     ports:
       - '${PORT}:${PORT}'
-    command: ["npm", "run", "test"]
+    command: ["npm", "run", "dev"]
 

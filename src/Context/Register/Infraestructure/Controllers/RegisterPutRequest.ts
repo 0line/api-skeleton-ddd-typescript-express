@@ -4,6 +4,7 @@ export type RegisterPutRequest = Request & {
     body: {
         id: string;
         email:string;
-        password: string;   
+        password: string;
+        confirmPassword: string;
     }
 }

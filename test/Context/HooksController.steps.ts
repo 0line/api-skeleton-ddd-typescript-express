@@ -1,4 +1,4 @@
-import { UsersApp } from './../../src/Context/Shared/Infraestructure/UsersApp';
+import { UsersApp } from "../../src/Shared/Infraestructure/UsersApp";
 import { AfterAll, BeforeAll} from "@cucumber/cucumber";
 
 let application: UsersApp;
