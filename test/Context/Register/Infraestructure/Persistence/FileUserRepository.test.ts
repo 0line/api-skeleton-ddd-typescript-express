@@ -4,13 +4,13 @@ import { UserUuid } from '../../../../../src/Context/Shared/Users/UserUuid';
 
 describe('FileUserRepository', ()=>{
     it('should save a user', async ()=>{
-        const expectedUser = new User({id: new UserUuid('ef8ac118-8d7f-49cc-abec-78e0d05af80a'), 
-                                    email: 'email@email.com', password: 'password', confirmPassword: 'password'});
+        const expectedUser = new User({id: new UserUuid('0766c602-d4d4-48b6-9d50-d3253123275e'), 
+                                    email: 'email@email.com', password: 'password123', confirmPassword: 'password123'});
         const repository = new FileUserRepository();
 
         await repository.save(expectedUser);
 
-        const user = await repository.search("ef8ac118-8d7f-49cc-abec-78e0d05af80a");
+        const user = await repository.search("0766c602-d4d4-48b6-9d50-d3253123275e");
         expect(user).toEqual(expectedUser);
 
     });
